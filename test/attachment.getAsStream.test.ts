@@ -2,7 +2,7 @@ import { assertEquals, assertNotEquals, assertThrowsAsync } from "https://deno.l
 import { stub } from "https://deno.land/x/mock@v0.9.4/stub.ts";
 import type { Stub } from "https://deno.land/x/mock@v0.9.4/stub.ts";
 
-import dbScope from '../lib2/nano.js';
+import dbScope from '../lib/nano.js';
 import { mockResponse } from "./helpers/mocks.ts";
 
 const nano:any = dbScope('http://localhost:5984');
