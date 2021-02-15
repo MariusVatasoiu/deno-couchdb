@@ -1305,9 +1305,7 @@ Check [issues][2]
 To run (and configure) the test suite simply:
 
 ``` sh
-cd nano
-npm install
-npm run test
+deno test test/
 ```
 
 ## Meta
@@ -1320,12 +1318,8 @@ npm run test
 * chat: [Freenode IRC @ #couchdb-dev][8]
 
 [1]: http://npmjs.org
-[2]: http://github.com/apache/couchdb-nano/issues
-[4]: https://github.com/apache/couchdb-nano/blob/main/cfg/couch.example.js
-[8]: http://webchat.freenode.net?channels=%23couchdb-dev
-[axios]:  https://github.com/axios/axios
-
-http://freenode.org/
+[2]: http://github.com/MariusVatasoiu/deno-couchdb/issues
+[4]: https://github.com/MariusVatasoiu/deno-couchdb/blob/main/cfg/couch.example.js
 
 ## Release
 
