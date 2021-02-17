@@ -62,12 +62,6 @@ Deno.test("should not attempt compact invalid parameters - nano.db.replicate", a
   assertThrowsAsync(async() => await nano.db.replicate('', 'target'), Error , "Invalid parameters");
 });
 
-Deno.test("should not attempt compact invalid parameters - nano.db.replicate", async () => {
-  assertThrowsAsync(async() => await nano.db.replicate(''), Error , "Invalid parameters");
-  assertThrowsAsync(async() => await nano.db.replicate(undefined, 'target'), Error , "Invalid parameters");
-  assertThrowsAsync(async() => await nano.db.replicate('', 'target'), Error , "Invalid parameters");
-});
-
 Deno.test("should detect missing parameters (callback) - nano.db.replicate", () => {
   return new Promise((resolve, reject) => {
     nano.db.replicate(undefined, undefined, undefined, (err: any, data: any) => {
