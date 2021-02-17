@@ -56,9 +56,10 @@ Deno.test("should be able to supply additional parameters - POST /_replicate - n
   fetchStub.restore();
 });
 
-Deno.test("should not attempt to create database with invalid parameters - nano.db.create", async () => {
-  assertThrowsAsync(async() => await nano.db.create(), Error , "Invalid parameters");
-  assertThrowsAsync(async() => await nano.db.create(''), Error , "Invalid parameters");
+Deno.test("should not attempt compact invalid parameters - nano.db.replicate", async () => {
+  assertThrowsAsync(async() => await nano.db.replicate(''), Error , "Invalid parameters");
+  assertThrowsAsync(async() => await nano.db.replicate(undefined, 'target'), Error , "Invalid parameters");
+  assertThrowsAsync(async() => await nano.db.replicate('', 'target'), Error , "Invalid parameters");
 });
 
 Deno.test("should not attempt compact invalid parameters - nano.db.replicate", async () => {

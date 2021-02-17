@@ -83,4 +83,5 @@ Deno.test("should be able to fetch the changes from db.changes - GET /db/_change
   const db = nano.db.use('db');
   const p = await db.changes();
   assertEquals(p, response);
+  fetchStub.restore();
 });

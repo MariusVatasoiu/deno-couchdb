@@ -12,14 +12,12 @@ Deno.test("should create a database - PUT /db - nano.db.create", async () => {
   const fetchStub: Stub<any> = stub(window, "fetch", mockResponse(200, response));
   
   const p = await nano.db.create('db');
-  try{
-    assertEquals(typeof p, 'object');
-    assertEquals(p.ok, true);
-    const fetchArg = <Request>fetchStub.calls[0].args[0];
-    assertEquals(fetchArg.method, 'PUT');
-  } finally {
-    fetchStub.restore();
-  }
+
+  assertEquals(typeof p, 'object');
+  assertEquals(p.ok, true);
+  const fetchArg = <Request>fetchStub.calls[0].args[0];
+  assertEquals(fetchArg.method, 'PUT');
+  fetchStub.restore();
 });
 
 Deno.test("should handle pre-existing database - PUT /db - nano.db.create", async () => {
@@ -29,8 +27,8 @@ Deno.test("should handle pre-existing database - PUT /db - nano.db.create", asyn
   }));
   
   assertThrowsAsync(async() => await nano.db.create('db'), Error , "The database could not be created");
-
   fetchStub.restore();
+
 });
 
 Deno.test("should not attempt to create database with invalid parameters - nano.db.create", async () => {

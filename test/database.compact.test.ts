@@ -11,7 +11,7 @@ const response = { ok: true };
 Deno.test("should be able to send compaction request - POST /db/_compact - nano.db.compact", async () => {
   const fetchStub: Stub<any> = stub(window, "fetch", mockResponse(200, response));
   
-  const p = await nano.db.compact('db')
+  const p = await nano.db.compact('db');
   try{
     assertEquals(p, response);
     const fetchArg = <Request>fetchStub.calls[0].args[0];

@@ -22,7 +22,7 @@ const response = {
   pending: 0
 };
 
-Deno.test("should get a streamed list of changes - GET /_changes - nano.db.changesAsStream", async () => {
+Deno.test("should get a streamed list of changes - GET /_changes - nano.db.changesAsStream", () => {
   const fetchStub: Stub<any> = stub(window, "fetch", mockResponse(200, response));
 
   return new Promise(async (resolve, reject) => {
@@ -30,6 +30,7 @@ Deno.test("should get a streamed list of changes - GET /_changes - nano.db.chang
     const db = nano.db.use('db');
     const stream = await db.changesAsStream();
     const reader = stream.getReader();
+    fetchStub.restore();
 
     reader.read().then(function processStream({ done, value }: {done: boolean, value: any}) {
       if (done) {
@@ -40,7 +41,6 @@ Deno.test("should get a streamed list of changes - GET /_changes - nano.db.chang
         const responseString = JSON.parse(new TextDecoder("utf-8").decode(responseArray.buffer));
 
         assertEquals(responseString, response);
-        fetchStub.restore();
         resolve();
         return;
       }
@@ -53,7 +53,7 @@ Deno.test("should get a streamed list of changes - GET /_changes - nano.db.chang
   });
 });
 
-Deno.test("should get a streamed list of changes with opts - GET /_changes - nano.db.changesAsStream", async () => {
+Deno.test("should get a streamed list of changes with opts - GET /_changes - nano.db.changesAsStream", () => {
   const opts = { include_docs: true }
   const fetchStub: Stub<any> = stub(window, "fetch", mockResponse(200, response));
 
@@ -62,6 +62,7 @@ Deno.test("should get a streamed list of changes with opts - GET /_changes - nan
     const db = nano.db.use('db');
     const stream = await db.changesAsStream(opts);
     const reader = stream.getReader();
+    fetchStub.restore();
 
     reader.read().then(function processStream({ done, value }: {done: boolean, value: any}) {
       if (done) {
@@ -72,7 +73,6 @@ Deno.test("should get a streamed list of changes with opts - GET /_changes - nan
         const responseString = JSON.parse(new TextDecoder("utf-8").decode(responseArray.buffer));
 
         assertEquals(responseString, response);
-        fetchStub.restore();
         resolve();
         return;
       }
