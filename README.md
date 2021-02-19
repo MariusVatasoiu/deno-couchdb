@@ -2,7 +2,7 @@
 
 # Nano
 
-Offical [Apache CouchDB](http://couchdb.apache.org/) library for [Node.js](https://nodejs.org/).
+Unoffical [Apache CouchDB](http://couchdb.apache.org/) library for [Deno](https://deno.land/).
 
 Features:
 
@@ -16,14 +16,7 @@ Features:
 
 ## Installation
 
-1. Install [npm][1]
-2. `npm install nano`
-
-or save `nano` as a dependency of your project with
-
-    npm install --save nano
-
-Note the minimum required version of Node.js is 10.
+WIP
 
 ## Table of contents
 
