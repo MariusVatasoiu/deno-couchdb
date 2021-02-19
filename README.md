@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/apache/couchdb-nano.svg?branch=main)](https://travis-ci.org/apache/couchdb-nano)![Coverage](https://img.shields.io/badge/coverage-100%-ff69b4.svg)[![dependencies Status](https://david-dm.org/apache/couchdb-nano/status.svg)](https://david-dm.org/apache/couchdb-nano)[![NPM](http://img.shields.io/npm/v/nano.svg?style=flat-square)](https://www.npmjs.com/package/nano)
+<a href="https://github.com/denoland/deno">
+  <img alt="deno version" src="https://img.shields.io/badge/deno-^1.7.0-lightgrey?logo=deno">
+</a>
 
 # Nano
 
